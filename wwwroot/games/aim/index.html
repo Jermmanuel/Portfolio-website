@@ -1,0 +1,258 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Aim Trainer</title>
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            background: #0b0b10;
+            overflow: hidden;
+        }
+
+        #wrap {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #game {
+            position: relative;
+            width: min(980px, 96vw);
+            height: min(560px, 84vh);
+            background: radial-gradient(1200px 600px at 20% 10%, rgba(0,187,249,.10), transparent 55%), radial-gradient(900px 500px at 80% 80%, rgba(255,0,110,.10), transparent 55%), #111122;
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 14px;
+            overflow: hidden;
+            cursor: crosshair;
+            user-select: none;
+        }
+
+        .hud {
+            position: absolute;
+            left: 12px;
+            top: 10px;
+            font: 14px system-ui;
+            color: #fff;
+            opacity: .92;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            z-index: 5;
+        }
+
+        .chip {
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,.14);
+            background: rgba(0,0,0,.25);
+        }
+
+        .btn {
+            cursor: pointer;
+            padding: 7px 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,.16);
+            background: rgba(0,0,0,.30);
+            color: #fff;
+        }
+
+        .hint {
+            opacity: .7
+        }
+
+        .target {
+            position: absolute;
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            border: 2px solid rgba(255,255,255,.20);
+            background: radial-gradient(circle at 35% 35%, rgba(255,255,255,.35), transparent 60%), rgba(0,187,249,.95);
+            box-shadow: 0 10px 30px rgba(0,187,249,.22);
+            transform: translate(-50%,-50%);
+        }
+
+            .target:active {
+                transform: translate(-50%,-50%) scale(.96);
+            }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,.55);
+            z-index: 10;
+        }
+
+        .card {
+            width: min(560px, 92%);
+            border: 1px solid rgba(255,255,255,.14);
+            background: rgba(0,0,0,.35);
+            border-radius: 14px;
+            padding: 16px;
+            color: #fff;
+            font: 14px system-ui;
+        }
+
+        .title {
+            font-weight: 800;
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="game" aria-label="Aim Trainer">
+            <div class="hud">
+                <div class="chip" id="countChip">Target: 0/20</div>
+                <div class="chip" id="timeChip">Time: 0.00s</div>
+                <div class="chip" id="accChip">Accuracy: 100%</div>
+                <div class="chip hint">Hit 20 targets • Misses hurt accuracy</div>
+                <button class="btn" id="restartBtn" type="button">Restart</button>
+            </div>
+
+            <div class="overlay" id="overlay">
+                <div class="card">
+                    <div class="title">Aim Trainer</div>
+                    <div class="hint">Hit 20 targets as fast as possible. Your accuracy tracks hits vs clicks.</div>
+                    <div class="row">
+                        <button class="btn" id="startBtn" type="button">Start</button>
+                        <div class="chip" id="bestChip">Best: --</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+(() => {
+  const game = document.getElementById('game');
+  const overlay = document.getElementById('overlay');
+  const startBtn = document.getElementById('startBtn');
+  const restartBtn = document.getElementById('restartBtn');
+
+  const countChip = document.getElementById('countChip');
+  const timeChip  = document.getElementById('timeChip');
+  const accChip   = document.getElementById('accChip');
+  const bestChip  = document.getElementById('bestChip');
+
+  const TOTAL = 20;
+  const BEST_KEY = "jeromeos_aim_best_ms_v1";
+  const getBest = () => Number(localStorage.getItem(BEST_KEY) || 0);
+  const setBest = (v) => localStorage.setItem(BEST_KEY, String(v));
+
+  let running = false;
+  let hits = 0;
+  let clicks = 0;
+  let startTime = 0;
+  let raf = 0;
+  let targetEl = null;
+
+  function fmtBest(ms){
+    if (!ms) return "--";
+    return (ms/1000).toFixed(2) + "s";
+  }
+
+  function updateHUD(){
+    const elapsed = running ? (performance.now() - startTime) : 0;
+    countChip.textContent = `Target: ${hits}/${TOTAL}`;
+    timeChip.textContent = `Time: ${(elapsed/1000).toFixed(2)}s`;
+    const acc = clicks ? Math.round((hits/clicks)*100) : 100;
+    accChip.textContent = `Accuracy: ${acc}%`;
+    bestChip.textContent = `Best: ${fmtBest(getBest())}`;
+  }
+
+  function rand(min,max){ return Math.random()*(max-min)+min; }
+
+  function spawnTarget(){
+    if (targetEl) targetEl.remove();
+    targetEl = document.createElement('div');
+    targetEl.className = 'target';
+
+    const rect = game.getBoundingClientRect();
+    const pad = 30;
+    const x = rand(pad, rect.width - pad);
+    const y = rand(80, rect.height - pad); // below HUD
+
+    targetEl.style.left = x + "px";
+    targetEl.style.top = y + "px";
+
+    targetEl.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (!running) return;
+      clicks++;
+      hits++;
+      if (hits >= TOTAL) endRun();
+      else spawnTarget();
+      updateHUD();
+    });
+
+    game.appendChild(targetEl);
+  }
+
+  function startRun(){
+    running = true;
+    hits = 0;
+    clicks = 0;
+    overlay.style.display = 'none';
+    startTime = performance.now();
+    spawnTarget();
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(loop);
+    updateHUD();
+  }
+
+  function endRun(){
+    running = false;
+    if (targetEl){ targetEl.remove(); targetEl = null; }
+
+    const elapsed = performance.now() - startTime;
+    const best = getBest();
+    if (!best || elapsed < best) setBest(Math.round(elapsed));
+
+    overlay.style.display = 'flex';
+    updateHUD();
+  }
+
+  function loop(){
+    if (!running) return;
+    updateHUD();
+    raf = requestAnimationFrame(loop);
+  }
+
+  // miss clicks
+  game.addEventListener('click', () => {
+    if (!running) return;
+    clicks++;
+    updateHUD();
+  });
+
+  startBtn.addEventListener('click', startRun);
+  restartBtn.addEventListener('click', startRun);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.code === 'Space'){
+      e.preventDefault();
+      if (!running) startRun();
+    }
+  });
+
+  bestChip.textContent = `Best: ${fmtBest(getBest())}`;
+})();
+    </script>
+</body>
+</html>

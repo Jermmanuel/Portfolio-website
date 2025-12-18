@@ -1,0 +1,254 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Click Frenzy</title>
+    <style>
+        html, body {
+            margin: 0;
+            height: 100%;
+            background: #0b0b10;
+            overflow: hidden;
+        }
+
+        #wrap {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #game {
+            position: relative;
+            width: min(980px, 96vw);
+            height: min(560px, 84vh);
+            background: radial-gradient(1200px 600px at 30% 20%, rgba(0,187,249,.10), transparent 60%), radial-gradient(900px 500px at 80% 70%, rgba(255,0,110,.10), transparent 55%), #111122;
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 14px;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .hud {
+            position: absolute;
+            left: 12px;
+            top: 10px;
+            font: 14px system-ui;
+            color: #fff;
+            opacity: .92;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            align-items: center;
+            z-index: 5;
+        }
+
+        .chip {
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,.14);
+            background: rgba(0,0,0,.25);
+        }
+
+        .btn {
+            cursor: pointer;
+            padding: 7px 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,.16);
+            background: rgba(0,0,0,.30);
+            color: #fff;
+        }
+
+        .hint {
+            opacity: .7
+        }
+
+        .target {
+            position: absolute;
+            width: 46px;
+            height: 46px;
+            border-radius: 999px;
+            border: 2px solid rgba(255,255,255,.18);
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), transparent 60%), rgba(255,0,110,.90);
+            box-shadow: 0 10px 30px rgba(255,0,110,.25);
+            cursor: pointer;
+            transform: translate(-50%,-50%);
+        }
+
+            .target:active {
+                transform: translate(-50%,-50%) scale(.96);
+            }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,.55);
+            z-index: 10;
+        }
+
+        .card {
+            width: min(520px, 92%);
+            border: 1px solid rgba(255,255,255,.14);
+            background: rgba(0,0,0,.35);
+            border-radius: 14px;
+            padding: 16px;
+            color: #fff;
+            font: 14px system-ui;
+        }
+
+        .title {
+            font-weight: 800;
+            font-size: 18px;
+            margin-bottom: 6px;
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="game" aria-label="Click Frenzy">
+            <div class="hud">
+                <div class="chip" id="timeChip">Time: 30.0</div>
+                <div class="chip" id="scoreChip">Score: 0</div>
+                <div class="chip hint">Click targets • Miss = -1 • Space = Start</div>
+                <button class="btn" id="restartBtn" type="button">Restart</button>
+            </div>
+
+            <div class="overlay" id="overlay">
+                <div class="card">
+                    <div class="title">Click Frenzy</div>
+                    <div class="hint">Hit as many targets as you can in 30 seconds. Misses cost points.</div>
+                    <div class="row">
+                        <button class="btn" id="startBtn" type="button">Start</button>
+                        <div class="chip" id="bestChip">Best: 0</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+(() => {
+  const game = document.getElementById('game');
+  const overlay = document.getElementById('overlay');
+  const startBtn = document.getElementById('startBtn');
+  const restartBtn = document.getElementById('restartBtn');
+  const timeChip = document.getElementById('timeChip');
+  const scoreChip = document.getElementById('scoreChip');
+  const bestChip = document.getElementById('bestChip');
+
+  const BEST_KEY = "jeromeos_click_best_v1";
+  const getBest = () => Number(localStorage.getItem(BEST_KEY) || 0);
+  const setBest = (v) => localStorage.setItem(BEST_KEY, String(v));
+
+  let running = false;
+  let score = 0;
+  let timeLeft = 30.0;
+  let targetEl = null;
+  let raf = 0;
+  let lastT = 0;
+
+  function updateHUD(){
+    timeChip.textContent = `Time: ${timeLeft.toFixed(1)}`;
+    scoreChip.textContent = `Score: ${score}`;
+    bestChip.textContent = `Best: ${getBest()}`;
+  }
+
+  function rand(min,max){ return Math.random()*(max-min)+min; }
+
+  function spawnTarget(){
+    if (targetEl) targetEl.remove();
+
+    targetEl = document.createElement('div');
+    targetEl.className = 'target';
+
+    const rect = game.getBoundingClientRect();
+    const pad = 40;
+    const x = rand(pad, rect.width - pad);
+    const y = rand(70, rect.height - pad); // leave room for HUD
+
+    targetEl.style.left = x + "px";
+    targetEl.style.top = y + "px";
+
+    targetEl.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (!running) return;
+      score += 1;
+      spawnTarget();
+      updateHUD();
+    });
+
+    game.appendChild(targetEl);
+  }
+
+  function endGame(){
+    running = false;
+    if (targetEl) { targetEl.remove(); targetEl = null; }
+
+    const best = getBest();
+    if (score > best) setBest(score);
+
+    overlay.style.display = 'flex';
+    updateHUD();
+  }
+
+  function startGame(){
+    score = 0;
+    timeLeft = 30.0;
+    running = true;
+    overlay.style.display = 'none';
+    lastT = performance.now();
+    spawnTarget();
+    updateHUD();
+    cancelAnimationFrame(raf);
+    raf = requestAnimationFrame(loop);
+  }
+
+  function loop(now){
+    if (!running) return;
+    const dt = (now - lastT) / 1000;
+    lastT = now;
+
+    timeLeft = Math.max(0, timeLeft - dt);
+    updateHUD();
+
+    if (timeLeft <= 0){
+      endGame();
+      return;
+    }
+    raf = requestAnimationFrame(loop);
+  }
+
+  // Miss click
+  game.addEventListener('click', () => {
+    if (!running) return;
+    score -= 1;
+    updateHUD();
+  });
+
+  startBtn.addEventListener('click', startGame);
+  restartBtn.addEventListener('click', startGame);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.code === 'Space'){
+      e.preventDefault();
+      if (!running) startGame();
+    }
+  });
+
+  updateHUD();
+})();
+    </script>
+</body>
+</html>

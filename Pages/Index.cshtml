@@ -1,0 +1,509 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Desktop";
+}
+
+<link rel="stylesheet" href="~/css/os.css" />
+
+<div class="os-desktop">
+    <!-- Desktop Icons -->
+    <div class="os-grid">
+        <div class="os-icon" data-open-app="about">
+            <div class="ico">A</div>
+            <div class="label">About</div>
+        </div>
+        <div class="os-icon" data-open-app="projects">
+            <div class="ico">P</div>
+            <div class="label">Projects</div>
+        </div>
+        <div class="os-icon" data-open-app="resume">
+            <div class="ico">R</div>
+            <div class="label">Resume</div>
+        </div>
+        <div class="os-icon" data-open-app="contact">
+            <div class="ico">C</div>
+            <div class="label">Contact</div>
+        </div>
+        <div class="os-icon" data-open-app="game">
+            <div class="ico">G</div>
+            <div class="label">Game</div>
+        </div>
+    </div>
+
+    <!-- Start Menu -->
+    <div class="start-menu" id="startMenu">
+        <div class="start-header">
+            <div class="title">JEROME://OS</div>
+            <div class="sub">matrix-mode • portfolio shell</div>
+        </div>
+        <div class="start-items">
+            <div class="start-item" data-open-app="about">Open About <span class="hint">/whoami</span></div>
+            <div class="start-item" data-open-app="projects">Open Projects <span class="hint">/builds</span></div>
+            <div class="start-item" data-open-app="resume">Open Resume <span class="hint">/pdf</span></div>
+            <div class="start-item" data-open-app="contact">Open Contact <span class="hint">/ping</span></div>
+            <div class="start-item" data-open-app="game">Open Game <span class="hint">/play</span></div>
+            <div class="start-item" data-open-app="achievements">Open Achievements <span class="hint">/flags</span></div>
+
+        </div>
+    </div>
+
+    <!-- Templates (Hidden) -->
+    <div class="template" data-app-id="about" data-title="About • whoami">
+        <div class="titlebar"> 
+            <div class="left"><div class="badge">A</div> <div>About • whoami</div></div>
+            <div class="win-controls">
+                <button class="win-btn" data-action="minimize">_</button>
+                <button class="win-btn close" data-action="close">X</button>
+            </div>
+        </div>
+        <div class="win-body">
+            <div class="panel">
+                <div class="section-title">IDENTITY // JEROME EMMANUEL EWOHIME</div>
+                <div class="hr"></div>
+
+                <p>
+                    Hey! I'm Jerome! If you came here first then you probably met AURA and asked for the tour. Sorry, her mood is always sassy. Anyways, I’m a student at Oklahoma State who’s really into techinal things, game dev, and building random cool projects like the one you're on ;). I build interactive web experiences, SQL-backed systems, and Unity games but thats proving difficult.
+                    I study management information systems, and I am about to graduate in the Spring of 2026 with my Bachelors! Well, thats enough from me. You'll find everything else about me if you look around.
+                </p>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <div class="card-title">CORE SKILLS</div>
+                        <ul>
+                            <li>ASP.NET Core (Razor Pages), C#, Python, SQL</li>
+                            <li>SQL Server design + querying</li>
+                            <li>Front-end UI (CSS/JS), responsive layouts</li>
+                            <li>Unity (gameplay systems + UI)</li>
+                            <li>Im also very good looking</li>
+                            <li>Short so I had to give up on NBA dreams :(</li>
+                        </ul>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title">WHAT I’M ABOUT</div>
+                        <ul>
+                            <li>Basketball Fan (From Oklahoma so you know my team)</li>
+                            <li>Super funny, Im a slightly taller Kevin Hart</li>
+                            <li>Great smile, or so I've been told </li>
+                            <li>People-person, I love being around others </li>
+                            <li>Family & Relationship oriented</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="hr"></div>
+                <div class="hint">Tip: Talk to Aura and mention "jarvis" or "matrix""</div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="template" data-app-id="projects" data-title="Projects • builds">
+        <div class="titlebar">
+            <div class="left"><div class="badge">P</div> <div>Projects • builds</div></div>
+            <div class="win-controls">
+                <button class="win-btn" data-action="minimize">_</button>
+                <button class="win-btn close" data-action="close">X</button>
+            </div>
+        </div>
+    <div class="win-body">
+        <div class="panel projects" id="projectsApp">
+            <div class="projects-head">
+                <div class="section-title">PROJECTS // HIGHLIGHT REEL</div>
+                <div class="projects-tabs">
+                    <button class="tab active" data-tab="all" type="button">All</button>
+                    <button class="tab" data-tab="web" type="button">Web</button>
+                    <button class="tab" data-tab="data" type="button">SQL/Data</button>
+                    <button class="tab" data-tab="infra" type="button">Infrastructure</button>
+                    <button class="tab" data-tab="game" type="button">Unity</button>
+                    <button class="tab" data-tab="models" type="button">Models</button>
+                </div>
+            </div>
+
+            <div class="hr"></div>
+
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Stilly Shelf -->
+                <button class="proj-card" type="button"
+                        data-cat="web"
+                        data-title="Stilly Shelf"
+                        data-sub="Razor Pages • EF Core • Identity"
+                        data-stack="C#, ASP.NET Core, Razor Pages, EF Core, SQL Server, Identity"
+                        data-details="A full-stack Razor Pages bookstore site with authentication/roles, search, category browsing, and admin-style management patterns. Built to demonstrate clean UI, database-backed features, and real web-app structure."
+                        data-links="github:#|demo:#">
+                    <div class="kicker">WEB APP</div>
+                    <div class="name">Stilly Shelf</div>
+                    <div class="meta">Razor Pages • EF Core • Identity</div>
+                    <div class="chips">
+                        <span class="chip">Auth/Roles</span><span class="chip">EF Core</span><span class="chip">Search</span>
+                    </div>
+                </button>
+
+                <!-- AniStyle -->
+                <button class="proj-card" type="button"
+                        data-cat="data"
+                        data-title="AniStyle"
+                        data-sub="Database-first design • Filters • Responsive UI"
+                        data-stack="SQL Server, Normalization (3NF), C#, Razor Pages, Bootstrap"
+                        data-details="An anime clothing store concept focused on clean data design: normalized tables, preload data, and filterable product browsing (brand/type/price). Built to show SQL design + front-end integration."
+                        data-links="github:#|demo:#">
+                    <div class="kicker">SQL + UI</div>
+                    <div class="name">AniStyle</div>
+                    <div class="meta">Schema design • Filtering • Responsive</div>
+                    <div class="chips">
+                        <span class="chip">3NF</span><span class="chip">FK Filters</span><span class="chip">Bootstrap</span>
+                    </div>
+                </button>
+
+                <!-- Infrastructure Network -->
+                <button class="proj-card" type="button"
+                        data-cat="infra"
+                        data-title="Corp19 Network Topology"
+                        data-sub="Routing • Subnets • Switch segments"
+                        data-stack="Networking, IPv4 subnetting, routing, switching, Windows Server, Ubuntu, lab simulation"
+                        data-details="Designed and documented a segmented network topology with router interfaces, two switch LANs, WAN uplink, and correctly addressed hosts. Demonstrates subnetting, default routes, and practical infrastructure thinking."
+                        data-links="diagram:#|notes:#">
+                    <div class="kicker">INFRA</div>
+                    <div class="name">Corp19 Network</div>
+                    <div class="meta">Subnets • Routing • Lab build</div>
+                    <div class="chips">
+                        <span class="chip">IPv4</span><span class="chip">Routing</span><span class="chip">Topology</span>
+                    </div>
+                </button>
+
+                <!-- Unity Game -->
+                <button class="proj-card" type="button"
+                        data-cat="game"
+                        data-title="Zombie Defense"
+                        data-sub="Wave system • Economy • Weapon upgrades"
+                        data-stack="Unity, C#, UI, enemy AI, wave spawner, currency/shop system"
+                        data-details="A base-defense zombie wave game built in Unity. Zombies push from a primary direction, kills reward currency, and players upgrade weapons to survive longer waves. Focused on satisfying combat feedback, clean UI, and scalable wave difficulty."
+                        data-links="video:#|github:#">
+                    <div class="kicker">UNITY</div>
+                    <div class="name">Zombie Defense</div>
+                    <div class="meta">Waves • Currency • Weapon Shop</div>
+                    <div class="chips">
+                        <span class="chip">Wave Spawner</span><span class="chip">Shop</span><span class="chip">UI</span>
+                    </div>
+                </button>
+
+                <!-- Excel/Solver Models -->
+                <button class="proj-card" type="button"
+                        data-cat="models"
+                        data-title="Optimization Models"
+                        data-sub="Excel Solver • Constraints • Analysis"
+                        data-stack="Excel, Solver, Linear programming, scheduling/assignment models"
+                        data-details="A collection of optimization models built in Excel using Solver: staffing, scheduling, and resource allocation with constraints and objective functions. Includes analysis + interpretation of results."
+                        data-links="pdf:#|examples:#">
+                    <div class="kicker">MODELS</div>
+                    <div class="name">Excel/Solver</div>
+                    <div class="meta">LP • Constraints • Results</div>
+                    <div class="chips">
+                        <span class="chip">Solver</span><span class="chip">LP</span><span class="chip">Analysis</span>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Details Drawer -->
+            <div class="proj-drawer" id="projDrawer" hidden>
+                <div class="proj-drawer-head">
+                    <div>
+                        <div class="drawer-title" id="drawerTitle">Title</div>
+                        <div class="drawer-sub" id="drawerSub">Subtitle</div>
+                    </div>
+                    <button class="ai-btn" id="drawerClose" type="button">Close</button>
+                </div>
+
+                <div class="hr"></div>
+
+                <div class="drawer-body">
+                    <div class="drawer-row">
+                        <div class="drawer-label">Stack</div>
+                        <div class="drawer-text" id="drawerStack"></div>
+                    </div>
+                    <div class="drawer-row">
+                        <div class="drawer-label">Summary</div>
+                        <div class="drawer-text" id="drawerDetails"></div>
+                    </div>
+
+                    <div class="drawer-links" id="drawerLinks"></div>
+                    <div class="hint">Tip: Replace the “#” links with your real GitHub / demo / PDF links later.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <div class="template" data-app-id="resume" data-title="Resume • pdf">
+        <div class="titlebar">
+            <div class="left"><div class="badge">R</div> <div>Resume • pdf</div></div>
+            <div class="win-controls">
+                <button class="win-btn" data-action="minimize">_</button>
+                <button class="win-btn close" data-action="close">X</button>
+            </div>
+        </div>
+        <div class="win-body">
+            <div class="panel">
+                <div>Check out my resume!</div>
+                <div class="hr"></div>
+            <a href="~/assets/eromonewohime_resume.pdf" target="_blank">Open Resume</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="template" data-app-id="contact" data-title="Contact • ping">
+        <div class="titlebar">
+            <div class="left"><div class="badge">C</div> <div>Contact • ping</div></div>
+            <div class="win-controls">
+                <button class="win-btn" data-action="minimize">_</button>
+                <button class="win-btn close" data-action="close">X</button>
+            </div>
+        </div>
+    <div class="win-body">
+        <div class="panel contact">
+            <div class="section-title">CONNECT // LET’S TALK</div>
+            <div class="hr"></div>
+
+            <div class="grid-2">
+                <!-- LEFT: INFO -->
+                <div class="card">
+                    <div class="card-title">INFO</div>
+
+                    <div class="contact-row">
+                        <span class="label">Location</span>
+                        <span>Oklahoma, USA</span>
+                    </div>
+
+                    <div class="contact-row">
+                        <span class="label">Availability</span>
+                        <span class="status open">Open to opportunities</span>
+                    </div>
+
+                    <div class="contact-row">
+                        <span class="label">Open to</span>
+                        <ul class="mini-list">
+                            <li>Software Engineering</li>
+                            <li>IT / Infrastructure</li>
+                            <li>Technical Project Management</li>
+                            <li>Game Development</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- RIGHT: LINKS -->
+                <div class="card">
+                    <div class="card-title">LINKS</div>
+
+                    <a class="contact-link" href="https://www.linkedin.com/in/jerome-ewohime-a0b75a247/" target="_blank">
+                        🔗 LinkedIn
+                    </a>
+
+                    <a class="contact-link" href="https://github.com/Jermmanuel" target="_blank">
+                        💻 GitHub
+                    </a>
+
+                    <a class="contact-link" href="mailto:jewohime@icloud.com">
+                        ✉ Email
+                    </a>
+
+                    <a class="contact-link" href="/assets/EromonEwohime_Resume.pdf" target="_blank">
+                        📄 Resume (PDF)
+                    </a>
+
+                    <div class="contact-link disabled">
+                        📅 Schedule a call (coming soon)
+                    </div>
+                </div>
+            </div>
+
+            <div class="hr"></div>
+
+            <!-- CONTACT FORM -->
+            <form class="contact-form" id="contactForm">
+                <div class="section-title">MESSAGE // DIRECT CHANNEL</div>
+
+                <input type="text" placeholder="Your name" required />
+                <input type="email" placeholder="Your email" required />
+                <textarea rows="4" placeholder="Your message…"></textarea>
+                <button class="ai-btn" type="submit">Send message</button>
+                <div class="form-status hint" id="contactStatus"></div>
+            </form>
+        </div>
+    </div>
+
+    </div>
+
+<!-- GANE ARCADE -->
+    <div class="template" data-app-id="game" data-title="Game • play">
+        <div class="titlebar">
+            <div class="left"><div class="badge">G</div> <div>Game • play</div></div>
+            <div class="win-controls">
+                <button class="win-btn" data-action="minimize">_</button>
+                <button class="win-btn close" data-action="close">X</button>
+            </div>
+        </div>
+        <div class="win-body">
+        <div class="panel">
+            <div class="section-title">GAME MODULE </div>
+            <div class="hr"></div>
+
+            <p>
+                Enjoy some of the games made by Jerome!
+            </p>
+
+            <div class="game-hub">
+                <div class="game-tabs">
+                    <button type="button" class="game-tab active" data-game="dodge">Dodge</button>
+                    <button type="button" class="game-tab" data-game="click">Click Frenzy</button>
+                    <button type="button" class="game-tab" data-game="aim">Aim Trainer</button>
+
+                </div>
+
+                <div class="game-stage">
+                    <iframe class="game-frame active" data-game="dodge" src="/games/dodge/index.html" loading="lazy"></iframe>
+                    <iframe class="game-frame" data-game="click" src="/games/click/index.html" loading="lazy"></iframe>
+                    <iframe class="game-frame" data-game="aim" src="/games/aim/index.html" loading="lazy"></iframe>
+                </div>
+
+                <div class="hint" style="margin-top:10px;">
+                    Tip: press <b>R</b> to restart Dodge • Click Frenzy is 30s • Aim Trainer tracks accuracy
+                </div>
+            </div>
+
+        </div>
+
+        </div>
+    </div>
+
+
+<!-- BOOT / HACK OVERLAY -->
+<div class="boot-overlay" id="bootOverlay" aria-hidden="false">
+    <div class="boot-panel">
+        <div class="boot-title">JEROME://OS — SECURE SHELL</div>
+        <pre class="boot-log" id="bootLog"></pre>
+        <div class="boot-progress">
+            <div class="boot-bar" id="bootBar"></div>
+        </div>
+        <div class="boot-hint" id="bootHint">Initializing…</div>
+    </div>
+</div>
+
+<!-- AI ASSISTANT OVERLAY -->
+<div class="ai-overlay" id="aiOverlay" aria-hidden="true">
+    <div class="ai-panel split">
+
+        <!-- LEFT: AURA -->
+        <div class="ai-leftpane" id="auraDragHandle">
+            <div class="ai-lefthead">
+                <div class="ai-name">A.U.R.A.</div>
+                <div class="ai-sub">Adaptive User Routing Assistant • “Operator support online.”</div>
+
+                <div class="aura-avatar" id="auraAvatar" aria-hidden="true">
+                    <div class="aura-frame"></div>
+
+                    <div class="aura-eyes">
+                        <div class="eye"><div class="pupil"></div></div>
+                        <div class="eye"><div class="pupil"></div></div>
+                    </div>
+
+                    <div class="aura-mouth">
+                        <div class="mouth-bar"></div>
+                    </div>
+
+                    <div class="aura-scan"></div>
+                </div>
+
+                <div class="aura-status">
+                    <div>STATUS: <span class="ok">GREEN</span></div>
+                    <div>MOOD: <span class="mood">LAZY/SASSY</span></div>
+                </div>
+
+                <div class="aura-controls">
+                    <label class="voice-toggle">
+                        <input type="checkbox" id="auraVoiceToggle" checked />
+                        <span>Voice</span>
+                    </label>
+
+                    <button class="ai-btn" id="aiCloseBtn" type="button">Close</button>
+                </div>
+            </div>
+
+            <div class="aura-tip panel">
+                <div><b>Quick commands</b></div>
+                <div class="hr"></div>
+                <div class="hint">tour • freeroam • open projects • open resume • help</div>
+            </div>
+        </div>
+
+        <!-- Right: CHAT -->
+        <div class="ai-rightpane">
+            <div class="ai-body" id="aiBody"></div>
+
+            <div class="ai-actions" id="aiActions">
+                <button class="ai-btn" data-ai-action="tour" type="button">Guided tour</button>
+                <button class="ai-btn" data-ai-action="freeroam" type="button">Free roam</button>
+                <button class="ai-btn" data-ai-action="projects" type="button">Open Projects</button>
+                <button class="ai-btn" data-ai-action="resume" type="button">Open Resume</button>
+                <button class="ai-btn" data-ai-action="about" type="button">Who is Jerome?</button>
+                <button class="ai-btn" data-ai-action="contact" type="button">Contact</button>
+            </div>
+
+            <form class="ai-input" id="aiForm">
+                <input class="ai-text" id="aiText" autocomplete="off"
+                       placeholder="Type: 'open projects', 'tour', 'help', 'freeroam'…" />
+                <button class="ai-send" type="submit">Send</button>
+            </form>
+        </div>
+
+    </div>
+    <!-- Achievements -->
+    <div class="template" data-app-id="achievements" data-title="Achievements • flags">
+        <div class="titlebar">
+            <div class="left"><div class="badge">★</div> <div>Achievements • flags</div></div>
+            <div class="win-controls">
+                <button class="win-btn" data-action="minimize">_</button>
+                <button class="win-btn close" data-action="close">X</button>
+            </div>
+        </div>
+        <div class="win-body">
+            <div class="panel">
+                <div class="section-title">FLAGS // UNLOCKED</div>
+                <div class="hr"></div>
+                <div id="achList" class="ach-list"></div>
+                <div class="hint">Tip: Use the tour, open apps, and explore to unlock more.</div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- Taskbar -->
+<div class="taskbar">
+    <button class="start-btn" id="startBtn">⌬ Start</button>
+    <button class="ai-taskbar-btn" id="aiTaskbarBtn" type="button">◈ A.U.R.A.</button>
+    <div class="taskbar-apps"></div>
+    <div class="taskbar-right">
+        <div class="clock" id="clock"></div>
+    </div>
+</div>
+
+<!-- Achievements -->
+<div class="os-icon" data-open-app="achievements">
+    <div class="ico">★</div>
+    <div class="label">Achievements</div>
+</div>
+
+<!-- Command Palette -->
+<div class="cmdk" id="cmdk" aria-hidden="true">
+    <div class="cmdk-panel">
+        <div class="cmdk-title">COMMAND // PALETTE</div>
+        <input class="cmdk-input" id="cmdkInput" placeholder="Type: open projects, open resume, tour, freeroam…" />
+        <div class="cmdk-hint">Enter to run • Esc to close</div>
+    </div>
+</div>
+
+<script src="~/js/os.js"></script>

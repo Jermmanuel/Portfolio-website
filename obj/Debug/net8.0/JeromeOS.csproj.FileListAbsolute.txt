@@ -32,3 +32,4 @@ C:\Users\jewoh\source\repos\JeromeOS\obj\Debug\net8.0\refint\JeromeOS.dll
 C:\Users\jewoh\source\repos\JeromeOS\obj\Debug\net8.0\JeromeOS.pdb
 C:\Users\jewoh\source\repos\JeromeOS\obj\Debug\net8.0\JeromeOS.genruntimeconfig.cache
 C:\Users\jewoh\source\repos\JeromeOS\obj\Debug\net8.0\ref\JeromeOS.dll
+C:\Users\jewoh\source\repos\JeromeOS\obj\Debug\net8.0\JeromeOS.sourcelink.json

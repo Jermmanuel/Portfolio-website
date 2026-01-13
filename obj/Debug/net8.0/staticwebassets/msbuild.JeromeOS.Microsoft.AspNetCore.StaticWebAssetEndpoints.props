@@ -96,17 +96,17 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-3UiByWZv45r9HWbdfpXmn24DN6TbT6XhLk379GNRfMo="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"1126"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00223UiByWZv45r9HWbdfpXmn24DN6TbT6XhLk379GNRfMo=\u0022"},{"Name":"Last-Modified","Value":"Wed, 17 Dec 2025 00:17:38 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="_content/JeromeOS/js/os.bi3moubj7f.js">
+    <StaticWebAssetEndpoint Include="_content/JeromeOS/js/os.bdtuja361b.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\os.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"bi3moubj7f"},{"Name":"integrity","Value":"sha256-Q3ttnmHQafc0LxFwT11PK26UuGL8w8G2oQw1T5buyQM="},{"Name":"label","Value":"_content/JeromeOS/js/os.js"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"38078"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022Q3ttnmHQafc0LxFwT11PK26UuGL8w8G2oQw1T5buyQM=\u0022"},{"Name":"Last-Modified","Value":"Wed, 17 Dec 2025 18:48:05 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"bdtuja361b"},{"Name":"integrity","Value":"sha256-0QS5DrntBjuQXGZ6gSvMf3KXX/9XFs5MMG\u002BBHB33Pa8="},{"Name":"label","Value":"_content/JeromeOS/js/os.js"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"38010"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00220QS5DrntBjuQXGZ6gSvMf3KXX/9XFs5MMG\u002BBHB33Pa8=\u0022"},{"Name":"Last-Modified","Value":"Tue, 13 Jan 2026 19:33:55 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/JeromeOS/js/os.js">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\os.js'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-Q3ttnmHQafc0LxFwT11PK26UuGL8w8G2oQw1T5buyQM="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"38078"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u0022Q3ttnmHQafc0LxFwT11PK26UuGL8w8G2oQw1T5buyQM=\u0022"},{"Name":"Last-Modified","Value":"Wed, 17 Dec 2025 18:48:05 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-0QS5DrntBjuQXGZ6gSvMf3KXX/9XFs5MMG\u002BBHB33Pa8="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"38010"},{"Name":"Content-Type","Value":"text/javascript"},{"Name":"ETag","Value":"\u00220QS5DrntBjuQXGZ6gSvMf3KXX/9XFs5MMG\u002BBHB33Pa8=\u0022"},{"Name":"Last-Modified","Value":"Tue, 13 Jan 2026 19:33:55 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/JeromeOS/lib/bootstrap/dist/css/bootstrap-grid.agp80tu62r.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\bootstrap\dist\css\bootstrap-grid.css'))</AssetFile>

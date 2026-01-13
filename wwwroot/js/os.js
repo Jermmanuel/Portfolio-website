@@ -541,9 +541,9 @@
                 "┌─ JeromeOS handshake complete.\n" +
                 "│ Status: GREEN • Threat level: minimal.\n" +
                 "│ Hi. I’m the Adaptive, User, Routing, Assistant. Also known as Aura.\n" +
-                "└─ Don't ask me for anything, I run the tour, but I don't want to.\n\n" +
+                "└─ I'm the personal assisstant and I also run the tour.\n\n" +
                 "Type or click on the buttons below:\n" +
-                "• **tour** — don't touch.\n" +
+                "• **tour** — Ill give you the tour.\n" +
                 "• **freeroam** — do what you want, I'll just watch.\n" +
                 "• There are achivements so look around and see what you unlock",
                 { type: true, speak: true, streamSpeak: true, mode: "normal" }
@@ -590,9 +590,8 @@
     function auraSnark() {
         const options = [
             "Wake up to reality! Haha, I love that quote.",
-            "Put an M on his head, he's Luigi brother now, J Cole is awesome.",
+            "Put an M on his head, he's Luigi brother now, if you know you know.",
             "Sure. I guess we’re doing this.",
-            "Try not to break anything.",
             "I’m always watching. Respectfully.",
             "Wall-e is a top 5 Disney movie, can't change my mind."
         ];
@@ -608,23 +607,23 @@
             auraPanel.style.transform = "none";
         }
 
-        await pushAI("I said don't touch! Whatever, try to keep up.", { type: true, speak: true, streamSpeak: true, mode: "normal" });
+        await pushAI("Alright! Let's start the tour.", { type: true, speak: true, streamSpeak: true, mode: "normal" });
         await sleep(450);
 
         openApp('about');
-        await pushAI("Here's the about window, read it or not.", { type: true, speak: true, streamSpeak: true, mode: "normal" });
+        await pushAI("Here's the about window,Learn a bit about Jerome!", { type: true, speak: true, streamSpeak: true, mode: "normal" });
         await sleep(650);
 
         openApp('projects');
-        await pushAI("Projects open. Jerome has done alittle bit of stuff.", { type: true, speak: true, streamSpeak: true, mode: "projects" });
+        await pushAI("Projects open. Jerome has done quite a bit of stuff.", { type: true, speak: true, streamSpeak: true, mode: "projects" });
         await sleep(650);
 
         openApp('resume');
-        await pushAI("Resume loaded. Wow, he actually looks really qualified.", { type: true, speak: true, streamSpeak: true, mode: "resume" });
+        await pushAI("Resume loaded. Take a look and see if he's qualified.", { type: true, speak: true, streamSpeak: true, mode: "resume" });
         await sleep(650);
 
         openApp('contact');
-        await pushAI("Contact module open. If you get in touch with him, remind him to give me a raise.", { type: true, speak: true, streamSpeak: true, mode: "contact" });
+        await pushAI("Contact module open. Here are ways to get in contact with him.", { type: true, speak: true, streamSpeak: true, mode: "contact" });
 
         await pushAI("Tour complete. Want the game? Type **open game**.", { type: true, speak: true, streamSpeak: true, mode: "normal" });
 

@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\jewoh\\source\\repos\\JeromeOS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9E9B4284-26D2-4B43-B99F-B26E245EDFFA}|JeromeOS.csproj|c:\\users\\jewoh\\source\\repos\\jeromeos\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{9E9B4284-26D2-4B43-B99F-B26E245EDFFA}|JeromeOS.csproj|solutionrelative:pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9E9B4284-26D2-4B43-B99F-B26E245EDFFA}|JeromeOS.csproj|c:\\users\\jewoh\\source\\repos\\jeromeos\\wwwroot\\js\\os.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{9E9B4284-26D2-4B43-B99F-B26E245EDFFA}|JeromeOS.csproj|solutionrelative:wwwroot\\js\\os.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E9B4284-26D2-4B43-B99F-B26E245EDFFA}|JeromeOS.csproj|c:\\users\\jewoh\\source\\repos\\jeromeos\\pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9E9B4284-26D2-4B43-B99F-B26E245EDFFA}|JeromeOS.csproj|solutionrelative:pages\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9E9B4284-26D2-4B43-B99F-B26E245EDFFA}|JeromeOS.csproj|c:\\users\\jewoh\\source\\repos\\jeromeos\\wwwroot\\css\\os.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -42,8 +42,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\jewoh\\source\\repos\\JeromeOS\\Pages\\Index.cshtml",
+              "RelativeDocumentMoniker": "Pages\\Index.cshtml",
+              "ToolTip": "C:\\Users\\jewoh\\source\\repos\\JeromeOS\\Pages\\Index.cshtml",
+              "RelativeToolTip": "Pages\\Index.cshtml",
+              "ViewState": "AgIAALkBAAAAAAAAAAAAAD4AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-17T00:16:17.657Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 6,
@@ -54,8 +67,7 @@
               "RelativeToolTip": "wwwroot\\games\\click\\index.html",
               "ViewState": "AgIAAM8AAAAAAAAAAAAQwP4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-12-17T16:49:31.058Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-17T16:49:31.058Z"
             },
             {
               "$type": "Document",
@@ -67,8 +79,7 @@
               "RelativeToolTip": "wwwroot\\games\\aim\\index.html",
               "ViewState": "AgIAAGkAAAAAAAAAAAAiwAIBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-12-17T16:49:22.464Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-17T16:49:22.464Z"
             },
             {
               "$type": "Document",
@@ -80,18 +91,17 @@
               "RelativeToolTip": "wwwroot\\games\\dodge\\index.html",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-12-17T16:45:07.367Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-17T16:45:07.367Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "os.js",
               "DocumentMoniker": "C:\\Users\\jewoh\\source\\repos\\JeromeOS\\wwwroot\\js\\os.js",
               "RelativeDocumentMoniker": "wwwroot\\js\\os.js",
               "ToolTip": "C:\\Users\\jewoh\\source\\repos\\JeromeOS\\wwwroot\\js\\os.js",
               "RelativeToolTip": "wwwroot\\js\\os.js",
-              "ViewState": "AgIAAAMCAAAAAAAAAAAUwCACAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAI8BAAAAAAAAAAAYwGoCAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2025-12-17T00:17:04.537Z",
               "EditorCaption": ""
@@ -106,21 +116,7 @@
               "RelativeToolTip": "wwwroot\\css\\os.css",
               "ViewState": "AgIAAMMFAAAAAAAAAAAAANMFAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-12-17T00:16:46.73Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\jewoh\\source\\repos\\JeromeOS\\Pages\\Index.cshtml",
-              "RelativeDocumentMoniker": "Pages\\Index.cshtml",
-              "ToolTip": "C:\\Users\\jewoh\\source\\repos\\JeromeOS\\Pages\\Index.cshtml",
-              "RelativeToolTip": "Pages\\Index.cshtml",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAD4AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-17T00:16:17.657Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-17T00:16:46.73Z"
             },
             {
               "$type": "Document",
@@ -132,8 +128,7 @@
               "RelativeToolTip": "wwwroot\\games\\dodge\\dodge.js",
               "ViewState": "AgIAAHkAAAAAAAAAAAAgwPQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-12-17T17:52:35.233Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-17T17:52:35.233Z"
             },
             {
               "$type": "Document",
@@ -145,8 +140,7 @@
               "RelativeToolTip": "Pages\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-12-17T00:15:54.926Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-17T00:15:54.926Z"
             }
           ]
         }

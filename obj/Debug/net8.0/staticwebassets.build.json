@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "MTL0lEdQnsp8pW/RITHZgaao41dGdRTP1zdzgC/ONgA=",
+  "Hash": "tocWTuqPOkixstCe4TNa7XQYbHDSD7HcJw2DZ+AA0MA=",
   "Source": "JeromeOS",
   "BasePath": "_content/JeromeOS",
   "Mode": "Default",
@@ -220,8 +220,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "bi3moubj7f",
-      "Integrity": "Q3ttnmHQafc0LxFwT11PK26UuGL8w8G2oQw1T5buyQM=",
+      "Fingerprint": "bdtuja361b",
+      "Integrity": "0QS5DrntBjuQXGZ6gSvMf3KXX/9XFs5MMG+BHB33Pa8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\os.js"
@@ -2164,7 +2164,7 @@
       ]
     },
     {
-      "Route": "js/os.bi3moubj7f.js",
+      "Route": "js/os.bdtuja361b.js",
       "AssetFile": "C:\\Users\\jewoh\\source\\repos\\JeromeOS\\wwwroot\\js\\os.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2174,7 +2174,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "38078"
+          "Value": "38010"
         },
         {
           "Name": "Content-Type",
@@ -2182,11 +2182,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Q3ttnmHQafc0LxFwT11PK26UuGL8w8G2oQw1T5buyQM=\""
+          "Value": "\"0QS5DrntBjuQXGZ6gSvMf3KXX/9XFs5MMG+BHB33Pa8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Dec 2025 18:48:05 GMT"
+          "Value": "Tue, 13 Jan 2026 19:33:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2196,7 +2196,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "bi3moubj7f"
+          "Value": "bdtuja361b"
         },
         {
           "Name": "label",
@@ -2204,7 +2204,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Q3ttnmHQafc0LxFwT11PK26UuGL8w8G2oQw1T5buyQM="
+          "Value": "sha256-0QS5DrntBjuQXGZ6gSvMf3KXX/9XFs5MMG+BHB33Pa8="
         }
       ]
     },
@@ -2219,7 +2219,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "38078"
+          "Value": "38010"
         },
         {
           "Name": "Content-Type",
@@ -2227,11 +2227,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Q3ttnmHQafc0LxFwT11PK26UuGL8w8G2oQw1T5buyQM=\""
+          "Value": "\"0QS5DrntBjuQXGZ6gSvMf3KXX/9XFs5MMG+BHB33Pa8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 17 Dec 2025 18:48:05 GMT"
+          "Value": "Tue, 13 Jan 2026 19:33:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2241,7 +2241,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Q3ttnmHQafc0LxFwT11PK26UuGL8w8G2oQw1T5buyQM="
+          "Value": "sha256-0QS5DrntBjuQXGZ6gSvMf3KXX/9XFs5MMG+BHB33Pa8="
         }
       ]
     },

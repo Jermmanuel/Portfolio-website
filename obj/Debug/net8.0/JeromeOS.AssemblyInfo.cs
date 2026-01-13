@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JeromeOS")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e225207ffcc6e10f54c5cbc30e43e54403806f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("JeromeOS")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JeromeOS")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -835,9 +835,12 @@
     function parseLinks(linkStr) {
         const parts = (linkStr || '').split('|').map(s => s.trim()).filter(Boolean);
         return parts.map(p => {
-            const [label, url] = p.split(':');
-            return { label: (label || '').trim(), url: (url || '').trim() };
-        }).filter(x => x.label && x.url);
+            // Split on the first colon only, so "github:https://..." keeps the full URL.
+            const i = p.indexOf(':');
+            const label = i === -1 ? p : p.slice(0, i);
+            const url = i === -1 ? '' : p.slice(i + 1);
+            return { label: label.trim(), url: url.trim() };
+        }).filter(x => x.label && x.url && x.url !== '#'); // hide placeholder links
     }
 
     function openDrawer(card) {
